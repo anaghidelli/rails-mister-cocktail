@@ -1,0 +1,8 @@
+<h1>Cocktail Details</h1>
+<%= @cocktail.name %>
+<%= @dose %>
+
+<%= link_to 'Go Back', cocktails_path %>
+<%= link_to 'Add Ingredient', new_cocktail_dose_path(@cocktail) %>
+<%= link_to 'Update', edit_cocktail_path %>
+<%= link_to 'Delete', cocktails_path %>

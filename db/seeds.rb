@@ -8,17 +8,17 @@
 require 'faker'
 
 Cocktail.destroy_all
-20.times do
+10.times do
   cocktail = Cocktail.new(
-    name: Faker::TvShows::GameOfThrones.city
+    name: Faker::Food.spice
   )
   cocktail.save!
 end
 
-Ingridient.destroy_all
-20.times do
-  ingridient = Ingridient.new(
+Ingredient.destroy_all
+10.times do
+  ingredient = Ingredient.new(
     name: Faker::Food.ingredient
   )
-  ingridient.save!
+  ingredient.save!
 end
