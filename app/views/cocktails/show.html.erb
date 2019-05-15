@@ -2,6 +2,12 @@
 
  <h3>This drink: <%= @cocktail.name %></h3>
  <p>
+  <% if @cocktail.photo.present? %>
+  <%= cl_image_tag @cocktail.photo, height: 300, width: 400, crop: :fill %>
+  <% else %>
+  <p>No photo added!</p>
+  <% end %>
+
   <% @cocktail.doses.each do |d| %>
     <li>
      <%= d.ingredient.name %>,
@@ -31,4 +37,4 @@
 <% end %>
 
 <%= link_to 'Update', edit_cocktail_path %>
-<%= link_to 'Delete', cocktails_path %>
+<%= link_to 'Delete', cocktail_path(@cocktail), method: :delete%>

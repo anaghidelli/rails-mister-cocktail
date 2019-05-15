@@ -10,6 +10,9 @@ class DosesController < ApplicationController
 
   def update
     @dose = Dose.find(params[:id])
+    @dose.update(doses_params)
+    # @cocktail = Cocktail.find(params[:cocktail_id])
+    redirect_to cocktail_path(@dose.cocktail)
   end
 
   def create

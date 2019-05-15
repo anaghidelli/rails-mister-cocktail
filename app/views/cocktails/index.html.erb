@@ -1,12 +1,26 @@
+
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://images.pexels.com/photos/4295/black-and-white-alcohol-bar-drinks.jpg?cs=srgb&dl=alcohol-bar-beverage-4295.jpg&fm=jpg);">
+  <div class="container">
+    <h1>Mister Cocktail App brings <strong>YOU </strong>closer to <strong>happy hour</strong>!</h1>
+    <p>Change your life and learn how to make awesome cocktails.</p>
+    <a class="btn btn-flat" href="/cocktails/new">Add cocktail</a>
+  </div>
+</div>
+
+
 <h1>Cocktail List</h1>
   <ul>
       <% @cocktails.each do |c| %>
         <li>
           <%= link_to cocktail_path(c) do %>
           <%= c.name %>
+          <%= c.photo %>
           <% end %>
        </li>
+
+
     <% end %>
   </ul>
 
 <%= link_to 'Add New Cocktail', new_cocktail_path %>
+
