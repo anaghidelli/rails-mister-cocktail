@@ -1,8 +1,34 @@
 <h1>Cocktail Details</h1>
-<%= @cocktail.name %>
-<%= @dose %>
 
-<%= link_to 'Go Back', cocktails_path %>
-<%= link_to 'Add Ingredient', new_cocktail_dose_path(@cocktail) %>
+ <h3>This drink: <%= @cocktail.name %></h3>
+ <p>
+  <% @cocktail.doses.each do |d| %>
+    <li>
+     <%= d.ingredient.name %>,
+     <%= d.description %>
+     <%= link_to "Update Dose", edit_dose_path(d) %>
+    </li>
+  <% end %>
+ </p>
+
+ <h3>Insert new Ingredients</h3>
+
+<%= simple_form_for [@cocktail, @dose] do |c| %>
+  <%= c.error_notification %>
+  <%= c.error_notification message: c.object.errors[:base].to_sentence if c.object.errors[:base].present? %>
+
+    <div class="form-inputs">
+      <%= c.input :description %>
+    </div>
+
+    <div class="form-inputs">
+      <%= c.association :ingredient %>
+    </div>
+
+    <div class="form-actions">
+      <%= c.button :submit %>
+    </div>
+<% end %>
+
 <%= link_to 'Update', edit_cocktail_path %>
 <%= link_to 'Delete', cocktails_path %>

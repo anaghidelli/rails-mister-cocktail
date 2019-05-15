@@ -1,0 +1,17 @@
+<h1>Edit Cocktail Dose</h1>
+<%= simple_form_for [@dose] do |c| %>
+  <%= c.error_notification %>
+  <%= c.error_notification message: c.object.errors[:base].to_sentence if c.object.errors[:base].present? %>
+
+  <div class="form-inputs">
+    <%= c.input :description %>
+  </div>
+
+  <div class="form-inputs">
+    <%= c.association :ingredient %>
+  </div>
+
+  <div class="form-actions">
+    <%= c.button :submit %>
+  </div>
+<% end %>
